@@ -57,8 +57,8 @@ graph TD;
     C --> D[Stepper Motor-NEMA 17];
     B --> E[Display-LCD I2C 16x2];
     B --> F[Push Buttons];
-    G --> B[Microcontroller - ESP32]; 
-    G --> H[Voltage Regulator-LM2596];
+    H --> B[Microcontroller - ESP32]; 
+    G[Voltage 12VDC] --> H[Voltage Regulator-LM2596];
 
 ```
 ### StateDiagram
