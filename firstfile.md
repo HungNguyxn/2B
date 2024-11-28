@@ -48,6 +48,8 @@ graph TD;
     H -->|No| G
     I --> J[End]
 
+### BLock Diagram
+
     +------------------+
         |                  |
         |       12V DC    |
@@ -87,13 +89,14 @@ graph TD;
 |     NEMA 17 Motor   |
 +---------------------+
 
-stateDiagram-v2
+###stateDiagram-v2
+
     [*] --> Idle
     Idle --> Ready
     Ready --> Pumping
     Pumping --> Stopped
     Stopped --> Ready
     Ready --> [*]
-    
+
 
 
