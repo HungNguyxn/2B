@@ -50,46 +50,16 @@ graph TD;
  ```   
 
 ### Block diagram
-```plaintext
-+------------------+
-        |                  |
-        |       12V DC    |
-        |                  |
-        +---------+--------+
-                  |
-                  |
-                  v
-        +---------+--------+
-        |                  |
-        |      LM2596     |
-        |                  |
-        +---------+--------+
-                  |
-                  |
-                  v
-        +---------+--------+
-        |                  |
-        |      ESP32      |
-        |                  |
-        +---------+--------+
-          /        |       \
-         /         |        \
-        v          v         v
-+-------+-------+  +---------+---------+
-| 4 Push Buttons |  |      LCD I2C     |
-|                |  |       16x2      |
-+----------------+  +------------------+
-         |
-         v
-+---------------------+
-|     TMC2209 Driver  |
-+---------------------+
-         |
-         v
-+---------------------+
-|     NEMA 17 Motor   |
-+---------------------+
-       
+```mermaid
+graph TD;
+    A[User Interface] --> B[Microcontroller (ESP32)]
+    B --> C[Control Driver (TMC2209)]
+    C --> D[Stepper Motor (NEMA 17)]
+    B --> E[Display (LCD I2C 16x2)]
+    B --> F[Push Buttons]
+    B --> G[Power Source (12V DC)]
+    G --> H[Voltage Regulator (LM2596)]
+
 
 ```
 ### StateDiagram
