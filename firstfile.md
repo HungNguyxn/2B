@@ -31,7 +31,6 @@ The syringe pump is controlled via an intuitive interface, and it can be program
 | Base               | Acrylic Base Plate 5mm Thickness                      | Local Vendor    | 50,000     | Provides stability      |
 
 ## Diagrams
-
 +-------+       +--------+
           | 12V DC|-------| LM2950 |
           +-------+       +--------+
@@ -40,19 +39,18 @@ The syringe pump is controlled via an intuitive interface, and it can be program
           +----v----+      +---v----+
           |  ESP32  |------|  LCD   |
           +---------+      +--------+
-                             |  I2C  |
-          +---------+      +--------+
-          | Push Btn |---| 16x2 LCD |
-          +---------+      +--------+
-               |               |
-               +----+ +--------+
-                    | |  TMC2209 |
-                    | +----------+
-                    |
-                    | +----------+
-                    | | NEMA 17  |
-                    | |  Motor   |
-                    | +----------+
+               |                |
+               |                |
+          +----v----+      +---v----+
+          | Push Btn |----| 16x2 LCD |
+          +---------+      +----------+
+               |                |
+               |                |
+          +----v----+      +---v----+
+          | TMC2209 |------| NEMA 17 |
+          | Driver   |      | Motor   |
+          +---------+      +---------+
+
 ### Flow Chart
 
 ```mermaid
