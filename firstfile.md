@@ -64,6 +64,7 @@ graph TD;
 ### StateDiagram
 ```mermaid
 stateDiagram-v2
+stateDiagram-v2
     [*] --> Idle
     Idle --> Set_Volume : User sets volume
     Idle --> Set_Rate : User sets rate
@@ -71,4 +72,6 @@ stateDiagram-v2
     Set_Rate --> Pumping : Initialize Pump
     Pumping --> Delivery_Complete : Liquid Delivered
     Delivery_Complete --> Idle : Stop Pump
+    Delivery_Complete --> Reversing : Enough Liquid Delivered
+    Reversing --> Idle : Reverse Completed
 ```
