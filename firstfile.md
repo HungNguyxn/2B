@@ -51,14 +51,27 @@ graph TD;
 
 ### Block diagram
 ```mermaid
-graph TD;
-    A[User Interface] --> B[Microcontroller (ESP32)]
-    B --> C[Control Driver (TMC2209)]
-    C --> D[Stepper Motor (NEMA 17)]
-    B --> E[Display (LCD I2C 16x2)]
-    B --> F[Push Buttons]
-    B --> G[Power Source (12V DC)]
-    G --> H[Voltage Regulator (LM2596)]
++-------+       +--------+
+          | 12V DC|-------| LM2950 |
+          +-------+       +--------+
+               |               |
+               |               |
+          +----v----+      +---v----+
+          |  ESP32  |------|  LCD   |
+          +---------+      +--------+
+                             |  I2C  |
+          +---------+      +--------+
+          | Push Btn |---| 16x2 LCD |
+          +---------+      +--------+
+               |               |
+               +----+ +--------+
+                    | |  TMC2209 |
+                    | +----------+
+                    |
+                    | +----------+
+                    | | NEMA 17  |
+                    | |  Motor   |
+                    | +----------+
 ```
 ### StateDiagram
 ```mermaid
