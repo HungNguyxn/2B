@@ -31,25 +31,6 @@ The syringe pump is controlled via an intuitive interface, and it can be program
 | Base               | Acrylic Base Plate 5mm Thickness                      | Local Vendor    | 50,000     | Provides stability      |
 
 ## Diagrams
-+-------+       +--------+
-          | 12V DC|-------| LM2950 |
-          +-------+       +--------+
-               |               |
-               |               |
-          +----v----+      +---v----+
-          |  ESP32  |------|  LCD   |
-          +---------+      +--------+
-               |                |
-               |                |
-          +----v----+      +---v----+
-          | Push Btn |----| 16x2 LCD |
-          +---------+      +----------+
-               |                |
-               |                |
-          +----v----+      +---v----+
-          | TMC2209 |------| NEMA 17 |
-          | Driver   |      | Motor   |
-          +---------+      +---------+
 
 ### Flow Chart
 
@@ -66,5 +47,53 @@ graph TD;
     H -->|Yes| I[Stop Pump]
     H -->|No| G
     I --> J[End]
+
+    +------------------+
+        |                  |
+        |       12V DC    |
+        |                  |
+        +---------+--------+
+                  |
+                  |
+                  v
+        +---------+--------+
+        |                  |
+        |      LM2596     |
+        |                  |
+        +---------+--------+
+                  |
+                  |
+                  v
+        +---------+--------+
+        |                  |
+        |      ESP32      |
+        |                  |
+        +---------+--------+
+          /        |       \
+         /         |        \
+        v          v         v
++-------+-------+  +---------+---------+
+| 4 Push Buttons |  |      LCD I2C     |
+|                |  |       16x2      |
++----------------+  +------------------+
+         |
+         v
++---------------------+
+|     TMC2209 Driver  |
++---------------------+
+         |
+         v
++---------------------+
+|     NEMA 17 Motor   |
++---------------------+
+
+stateDiagram-v2
+    [*] --> Idle
+    Idle --> Ready
+    Ready --> Pumping
+    Pumping --> Stopped
+    Stopped --> Ready
+    Ready --> [*]
+    
 
 
