@@ -64,7 +64,7 @@ graph TD;
 ### StateDiagram
 ```mermaid
 stateDiagram-v2
-stateDiagram-v2
+
     [*] --> Idle
     Idle --> Set_Volume : User sets volume
     Idle --> Set_Rate : User sets rate
