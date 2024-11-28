@@ -50,7 +50,7 @@ graph TD;
  ```   
 
 ### Block diagram
-```mermaid
+```gherkin
 +-------+       +--------+
           | 12V DC|-------| LM2950 |
           +-------+       +--------+
