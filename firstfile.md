@@ -20,7 +20,17 @@ The syringe pump is controlled via an intuitive interface, and it can be program
 | User Interface        | 4 Push Buttons                   |
 | Display               | LCD I2C 16x2                    |
 
- Diagrams
+## Mechanical Components
+
+| Purpose            | Product Information                                   | Vendor         | Cost (VND) | Note                  |
+|--------------------|------------------------------------------------------|----------------|------------|-----------------------|
+| Frame              | Aluminum Extrusion Profile 20x20mm                   | Thegioiic      | 150,000    | 1 meter length        |
+| Linear Motion      | Pad Screw T8 (1) Thread Step 2mm, Length 40cm With Nut (2) | Thegioiic      | 63,000     | For linear movement    |
+| Coupling           | Stepper Motor Coupling 5mm to 8mm                     | Tmshop         | 25,000     | Connects motor to lead screw |
+| Syringe Holder     | Custom 3D-printed Syringe Holder                      | Local Vendor    | 30,000     | Designed for 20ml syringes |
+| Base               | Acrylic Base Plate 5mm Thickness                      | Local Vendor    | 50,000     | Provides stability      |
+
+## Diagrams
 
 ### Flow Chart
 
@@ -37,14 +47,3 @@ graph TD;
     H -->|Yes| I[Stop Pump]
     H -->|No| G
     I --> J[End]
-
-#### Block diagram
-
-graph TD;
-    A[User Interface] --> B[Microcontroller (ESP32)]
-    B --> C[Control Driver (TMC2209)]
-    C --> D[Stepper Motor (NEMA 17)]
-    B --> E[Display (LCD I2C 16x2)]
-    B --> F[Push Buttons]
-    B --> G[Power Source (12V DC)]
-    G --> H[Voltage Regulator (LM2596)]
