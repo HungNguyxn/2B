@@ -47,3 +47,23 @@ graph TD;
     H -->|Yes| I[Stop Pump]
     H -->|No| G
     I --> J[End]
+
+### Block diagram
+graph TD;
+    A[User Interface] --> B[Microcontroller (ESP32)]
+    B --> C[Control Driver (TMC2209)]
+    C --> D[Stepper Motor (NEMA 17)]
+    B --> E[Display (LCD I2C 16x2)]
+    B --> F[Push Buttons]
+    B --> G[Power Source (12V DC)]
+    G --> H[Voltage Regulator (LM2596)]
+
+
+stateDiagram-v2
+    [*] --> Idle
+    Idle --> Set_Volume : User sets volume
+    Idle --> Set_Rate : User sets rate
+    Set_Volume --> Pumping : Initialize Pump
+    Set_Rate --> Pumping : Initialize Pump
+    Pumping --> Delivery_Complete : Liquid Delivered
+    Delivery_Complete --> Idle : Stop Pump
