@@ -47,8 +47,10 @@ graph TD;
     H -->|Yes| I[Stop Pump]
     H -->|No| G
     I --> J[End]
+ ```   
 
 ### Block diagram
+```mermaid
 graph TD;
     A[User Interface] --> B[Microcontroller (ESP32)]
     B --> C[Control Driver (TMC2209)]
@@ -57,8 +59,9 @@ graph TD;
     B --> F[Push Buttons]
     B --> G[Power Source (12V DC)]
     G --> H[Voltage Regulator (LM2596)]
-
-
+```
+### StateDiagram
+```mermaid
 stateDiagram-v2
     [*] --> Idle
     Idle --> Set_Volume : User sets volume
@@ -67,3 +70,4 @@ stateDiagram-v2
     Set_Rate --> Pumping : Initialize Pump
     Pumping --> Delivery_Complete : Liquid Delivered
     Delivery_Complete --> Idle : Stop Pump
+```
