@@ -52,7 +52,6 @@ graph TD;
 ### Block diagram
 ```mermaid
 graph TD;
-  graph TD
     A[User Interface] --> B[Microcontroller (ESP32)]
     B --> C[Control Driver (TMC2209)]
     C --> D[Stepper Motor (NEMA 17)]
